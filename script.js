@@ -1,34 +1,34 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'URL';
-const supabaseKey = 'CLE';
+const supabaseUrl = 'https://hzrmxqqdkeyhfwxtcfwf.supabase.co';
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6cm14cXFka2V5aGZ3eHRjZndmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjUwNTEyNjEsImV4cCI6MjA4MDYyNzI2MX0.OgSkI27XXexWxNUpxq33klPFSNOY7Gf1SPKnpeYs9WQ';
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const form = document.getElementById('formulaire');
 const bouton = document.getElementById('envoyer');
 
 bouton.addEventListener('click', async () => {
-    const prenom = form.prenom.value;
-    const nom = form.nom.value;
+    const first_name = form.prenom.value;
+    const name = form.nom.value;
     const email = form.email.value;
-    const boire_en_cours = form.boire_en_cours.value;
-    const cours_interessant = form.cours_interessant.value;
-    const charge_travail = form.charge_travail.value;
-    const materiel_bon_etat = form.materiel_bon_etat.value;
-    const commentaires = form.commentaires.value;
+    const choice_1 = form.boire_en_cours.checked;
+    const choice_2 = form.cours_interessant.checked;
+    const choice_3 = form.charge_travail.checked;
+    const choice_4 = form.materiel_bon_etat.checked;
+    const remarques = form.commentaires.value;
 
     const { data, error } = await supabase
         .from('retours_nsi')
         .insert([
             {
-                prenom,
-                nom,
+                first_name,
+                name,
                 email,
-                boire_en_cours,
-                cours_interessant,
-                charge_travail,
-                materiel_bon_etat,
-                commentaires
+                choice_1,
+                choice_2,
+                choice_3,
+                choice_4,
+                remarques
             }
         ])
 });
@@ -41,9 +41,9 @@ bouton.addEventListener('click', async () => {
 
 
 
-//flo :
+//flo : (WIP)
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     const bouton = document.getElementById("envoyer");
     const formulaire = document.getElementById("formulaire");
 
@@ -57,3 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
         const commentaires = formulaire.elements["commentaires"].value;
     })
 })
+*/
