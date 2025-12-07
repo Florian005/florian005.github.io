@@ -1,7 +1,7 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 const supabaseUrl = 'https://hzrmxqqdkeyhfwxtcfwf.supabase.co';
-const supabaseKey = ANON_KEY;
+const supabaseKey = process.env.ANON_KEY;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 const form = document.getElementById('formulaire');
